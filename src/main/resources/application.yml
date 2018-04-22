@@ -14,4 +14,17 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
       
-  
+zuul:
+  ignored-services: '*' #Lista de serviços separados por virgula que serão ignorados pela configuração automatica de rota por service id, * para desativar todas.
+  prefix: /api #Prefixo para todas as rotas
+  routes: #Configuração customizada de rotas formato serviceId: routeExpression
+    poc-spring-cloud-eureka-client-1: /client1/** #Mapeia o service id poc-spring-cloud-eureka-client-1 para a url /api/client1/...
+ 
+
+#Ativa todos os endpoints do actuator, inclusive os /routes e /filters do zuul
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+     
