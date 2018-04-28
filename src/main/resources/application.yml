@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: zuul-service-gateway
+    name: poc-spring-cloud-zuul
 
 eureka:
   instance:
@@ -19,6 +19,7 @@ zuul:
   prefix: /api #Prefixo para todas as rotas
   routes: #Configuração customizada de rotas formato serviceId: routeExpression
     poc-spring-cloud-eureka-client-1: /client1/** #Mapeia o service id poc-spring-cloud-eureka-client-1 para a url /api/client1/...
+    poc-spring-cloud-zuul-correlation-id: /correlationid/** #Rota da poc de correlation id, ver comentario em CorrelationIdZuulFilter.
  
 
 #Ativa todos os endpoints do actuator, inclusive os /routes e /filters do zuul
